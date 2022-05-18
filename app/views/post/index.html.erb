@@ -1,8 +1,32 @@
 <%= params%>
-<form method="get" action="/post/create" id="create_posts">
-<input name="titulo" placeholder="titulo" type="text">
-<input name="imagen" placeholder="imagen" type="text">
-<textarea name="contenido" type="text"> </textarea>
-<input type="submit" value="Enviar">
-
+  <form method="get" action="/post/create" id="create_posts">
+  <input name="titulo" placeholder="titulo" type="text">
+  <input name="imagen" placeholder="imagen" type="text">
+  <textarea name="contenido" type="text"> </textarea>
+  <input type="submit" value="Enviar">
 </form>
+
+<table class="table">
+
+  <tr>
+    <th>Título
+    </th>
+    <th>Contenido
+    </th>
+    <th>Imagen
+    </th>
+  </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td>
+      <%= post.title %>
+    </td>
+    <td>
+      <%= post.content %>
+    </td>
+    <td>
+      <%= post.image_url %>
+    </td>
+  </tr>
+<% end %>
+</table>
